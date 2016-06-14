@@ -4,7 +4,7 @@ sys.setdefaultencoding("utf-8")
 import telebot
 from telebot import types
 
-TOKEN = '224407718:AAGjkOEqJnqrOK68AzMsY-AL0ymILbquMAM' Put Your Token Here
+TOKEN = '224407718:AAGjkOEqJnqrOK68AzMsY-AL0ymILbquMAM'
 bot = telebot.TeleBot(TOKEN)
 
 @bot.inline_handler(lambda query: len(query.query.split()) == 0)
