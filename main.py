@@ -4,7 +4,7 @@ sys.setdefaultencoding("utf-8")
 import telebot
 from telebot import types
 
-TOKEN = '224407718:AAGjkOEqJnqrOK68AzMsY-AL0ymILbquMAM'
+TOKEN = 'YOUR TOKEN' # محل توکن شما 
 bot = telebot.TeleBot(TOKEN)
 
 @bot.inline_handler(lambda query: len(query.query.split()) == 0)
@@ -39,14 +39,12 @@ def qq(q):
     bold = types.InlineQueryResultArticle('1', 'Bold', types.InputTextMessageContent('<b>{}</b>'.format(text), parse_mode="HTML"), description='{}'.format(text), thumb_url=thumbb, thumb_width=20, thumb_height=20)
     code = types.InlineQueryResultArticle('2', 'Code', types.InputTextMessageContent('<code>{}</code>'.format(text), parse_mode="HTML"), description='{}'.format(text), thumb_url=thumbc, thumb_width=20, thumb_height=20)
     italic = types.InlineQueryResultArticle('3', 'Italic', types.InputTextMessageContent('<i>{}</i>'.format(text), parse_mode="HTML"), description='{}'.format(text), thumb_url=thumbi, thumb_width=20, thumb_height=20)
-    github = types.InlineQueryResultArticle('4', 'Search Github User Or Acount', types.InputTextMessageContent('[found User](https://github.com/{})'.format(text), parse_mode="Markdown"), description='Search Github ', thumb_url=git, thumb_width=20, thumb_height=20)
+    github = types.InlineQueryResultArticle('4', 'Search Github User', types.InputTextMessageContent('[found User](https://github.com/{})'.format(text), parse_mode="Markdown"), description='Search Github', thumb_url=git, thumb_width=20, thumb_height=20)
     githubrepo = types.InlineQueryResultArticle('5', 'Github Search repository', types.InputTextMessageContent('[Found repository](https://github.com/search?=&q={})'.format(text), parse_mode="Markdown"), thumb_url=git_rp)
-    deh = types.InlineQueryResultArticle('6', 'Search Dictionary', types.InputTextMessageContent('[Meaning :   {}](http://api.vajehyab.com/dehkhoda/{})'.format(text,text), parse_mode="Markdown"), thumb_url=dehpic)
-    google = types.InlineQueryResultArticle('7', 'Search In Google', types.InputTextMessageContent('[{}](https://www.google.com/search?q={})'.format(text,text), parse_mode='Markdown'), description='Search : {}'.format(text), thumb_url=googlepic)
+    deh = types.InlineQueryResultArticle('6', 'Search Dictionary Dehkhoda', types.InputTextMessageContent('[Meaning :   {}](http://api.vajehyab.com/dehkhoda/{})'.format(text,text), parse_mode="Markdown"), thumb_url=dehpic)
+    google = types.InlineQueryResultArticle('7', 'Google Search', types.InputTextMessageContent('[{}](https://www.google.com/search?q={})'.format(text,text), parse_mode='Markdown'), description='Search : {}'.format(text), thumb_url=googlepic)
     bot.answer_inline_query(q.id, [bold, code, italic, github, githubrepo, deh, google], cache_time=1)
 
     
     
 bot.polling(True)
-
-#new Update Soon
